@@ -41,23 +41,20 @@ typedef unsigned int uint;
 #define RETRO_MOBILE   (1)
 
 #if defined _WIN32
-
 #if defined WINAPI_FAMILY
 #if WINAPI_FAMILY != WINAPI_FAMILY_APP
 #define RETRO_PLATFORM   (RETRO_WIN)
 #define RETRO_DEVICETYPE (RETRO_STANDARD)
 #else
 #include <WInRTIncludes.hpp>
-
 #define RETRO_PLATFORM   (RETRO_UWP)
 #define RETRO_DEVICETYPE (UAP_GetRetroGamePlatform())
-#endif
+#endif # non WINAPI_FAMILY_APP
 #else
 #define RETRO_PLATFORM   (RETRO_WIN)
 #define RETRO_DEVICETYPE (RETRO_STANDARD)
-#endif
-
-#elif defined __APPLE__
+#endif # WINAPI_FAMILY
+#elif defined __APPLE__ # endif _WIN32
 #define RETRO_USING_MOUSE
 #define RETRO_USING_TOUCH
 #include <TargetConditionals.h>
@@ -70,6 +67,10 @@ typedef unsigned int uint;
 #else
 #error "Unknown Apple platform"
 #endif
+#else
+// Default (per RSDKv3)
+#define RETRO_PLATFORM   (RETRO_WIN)
+#define RETRO_DEVICETYPE (RETRO_STANDARD)
 #endif
 
 #define DEFAULT_SCREEN_XSIZE 424
