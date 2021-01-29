@@ -1,11 +1,13 @@
 # Sonic 1/2 2013 Decompilation
-A Full Decompilation of Sonic 1 & 2 (2013)
+This is a decompilation of RSDKv4, the engine used by the 2013 remakes of Sonic 1 & 2.
 
-# **SUPPORT THE OFFICIAL RELEASE OF SONIC 1 & SONIC 2**
-+ Without assets from the official releases this decompilation will not run.
-+ Video tutorial on how to find your legally obtained data.rsdk file: https://www.youtube.com/watch?v=gzIfRW91IxE
+**Please support the original release of S1/S2 '13!**
 
-+ You can get the official release of sonic 1 & sonic 2 from:
+# Obtaining the assets
+Without assets from the remakes, this *game* won't run.
+There is a [video tutorial](https://www.youtube.com/watch?v=gzIfRW91IxE) on how to obtain a legal `Data.rsdk` file.
+
+You can get the remakes from:
   * [Sonic 1 (iOS, Via the App Store)](https://apps.apple.com/au/app/sonic-the-hedgehog-classic/id316050001)
   * [Sonic 2 (iOS, Via the App Store)](https://apps.apple.com/au/app/sonic-the-hedgehog-2-classic/id347415188)
   * [Sonic 1 (Android, Via Google Play)](https://play.google.com/store/apps/details?id=com.sega.sonic1px&hl=en_AU&gl=US)
@@ -13,78 +15,125 @@ A Full Decompilation of Sonic 1 & 2 (2013)
   * [Sonic 1 (Android, Via Amazon)](https://www.amazon.com.au/Sega-of-America-Sonic-Hedgehog/dp/B00D74DVKM)
   * [Sonic 2 (Android, Via Amazon)](https://www.amazon.com.au/Sega-of-America-Sonic-Hedgehog/dp/B00HAPRVWS)
 
-Even if your platform isn't supported by the official releases, buy it for the assets (you don't need to run the official release, you just need the game assets)
+You don't need to be able to run them, you just need to extract the game assets from them.
 
-If you want to transfer your save from the **Android pre-forever versions,** you can go to `Android/data/com.sega.sonic1 or 2/SGame.bin` and copy it to the `SData.bin` in the EXE folder.
+For the Android version, please open the APK as a ZIP, open the `assets` folder, then copy the `Data.rsdk` file to the *game* folder.
+If there is a `Data.rsdk.xmf` file instead, still copy it, then rename it to `Data.rsdk`.
+
+# Transferring save file
+If you want to transfer your save from the **Android pre-Forever versions**,
+you can go to `*internal storage/SD card path*/Android/data/[game package name]/SGame.bin` and copy it to the *game* folder.
+
+`[game package name]` can be:
+  * `com.sega.sonic1` for Sonic 1
+  * `com.sega.sonic2` for Sonic 2
 
 # Additional Tweaks
-* added a built in script compiler, similar to CD, but tweaked up to match the new syntax for the scripts used in RSDKv4
-* There is now a settings.ini file that the game uses to load all settings, similar to Sonic Mania
+* Added a built-in script compiler
+* Added a `settings.ini` file that the game uses to load all settings, similar to Sonic Mania
 * Dev menu can now be accessed from anywhere by pressing the `ESC` key if enabled in the config
-* The `f12` pause, `f11` step over & fast forward debug features from sonic mania have all be ported and are enabled if devMenu is enabled in the config
-* If `devMenu` is enabled in the config, pressing `f10` will activate a palette overlay that shows the game's 8 internal palettes in real time
+* The debug pause key (F12), the step over & fast forward debug key (F11), and more debug features from Sonic Mania are all ported and are enabled with the dev menu
+* If dev menu is enabled, pressing F10 will activate a palette overlay that shows the game's 8 internal palettes in real time
 
 # TODOs:
-* the "native object" system has been implimented, but the objects (aside from RetroGameLoop and a temporary pause menu) and the proper HW rendering system have yet to be added
-* probably some more bug fixes, because there always are a few stragglers
-* create a `cmakelists.txt` file for windows compiling so builds can be added automatically via git actions
-* S2 networking code, we attempted to write code to handle the 2PVS mode in S2 but we couldn't finish for many reasons, we did leave our WIP code in the game, so if you think you could do it by all means give it a shot!
+- Add more native objects
+- Add a proper HW rendering system
+- Fix bugs
+- Add CMake support
+- Complete S2 networking code
+  * We attempted to write code to handle the 2PVS mode in S2, but we couldn't finish for many reasons.
+    We did leave our WIP code in the *game*, so if you think you could do it, give it a shot!
 
-# How to build:
-## Windows:
-* Clone the repo, then follow the instructions in the [depencencies readme for windows](./dependencies/windows/dependencies.txt) to setup dependencies, then build via the visual studio solution
-* or grab a prebuilt executable from the releases section
+# How to build
 
-## Windows via MSYS2 (64-bit Only):
+## Windows
 
-* Download the newest version of the MSYS2 installer from [here](https://www.msys2.org/) and install it.
-* Run the MINGW64 prompt (from the windows Start Menu/MSYS2 64-bit/MSYS2 MinGW 64-bit), when the program starts enter `pacman -Syuu` in the prompt and hit Enter. Press `Y` when it asks if you want to update packages. If it asks you to close the prompt, do so, then restart it and run the same command again. This updates the packages to their latest versions.
-* Now install the dependencies with the following command: `pacman -S make git mingw-w64-i686-gcc mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 mingw-w64-x86_64-libogg mingw-w64-x86_64-libvorbis`
-* Clone the repo with the following command: `git clone https://github.com/Rubberduckycooly/Sonic-1-2-2013-Decompilation.git`
-* Go into the repo you just cloned with `cd Sonic-1-2-2013-Decompilation`
-* Then run `make CXX=x86_64-w64-mingw32-g++ CXXFLAGS=-static -j4` (-j switch is optional but will make building faster, it's based on the number of cores you have +1 so 8 cores wold be -j9)
+* Clone the repo
+* Setup dependencies per the [depencencies README for Windows](./dependencies/windows/dependencies.txt)
+* Build with the included Visual Studio solution
 
-## Windows UWP (Phone, Xbox, etc.):
-* Clone the repo, then follow the instructions in the [depencencies readme for Windows](./dependencies/windows/dependencies.txt) and [depencencies readme for UWP](./dependencies/windows-uwp/dependencies.txt) to setup dependencies, copy your `Data.rsdk` folder into `Sonic1Decomp.UWP` or `Sonic2Decomp.UWP` depending on the game, then build and deploy via `Sonic12Decomp.UWP.sln`
-* You may also need to generate visual assets, to do so, open the Package.appxmanifest file in the designer, under the Visual Assets tab, select an image of your choice and click generate.
+You can also grab a prebuilt executable from the Releases section.
 
-## Linux:
+## Windows via MSYS2 (64-bit only)
+
+* Install the newest version of the MSYS2 by the installer from [here](https://www.msys2.org/) if you haven't.
+* Launch the MINGW64 prompt (from the Start Menu/MSYS2 64-bit/MSYS2 MinGW 64-bit).
+* Upgrade the system if you just installed it
+  * Enter `pacman -Syuu` in the prompt and hit Enter.
+  * Press `Y` when it asks if you want to update packages.
+    * If it asks you to close the prompt, do so, then restart it and run the same command again.
+* Install the dependencies with the following command:
+  `pacman -S make git mingw-w64-i686-gcc mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 mingw-w64-x86_64-libogg mingw-w64-x86_64-libvorbis`
+* Clone the repo
+* `cd` to the working tree (the repo's directory)
+  * If you're not sure, run `ls` to check
+* Run `make CXX=x86_64-w64-mingw32-g++ CXXFLAGS=-static -j4`
+  * The `-j` switch is optional, but it will make building faster
+    * The number parameter is based on the number of cores you have plus one, so 8 cores wold be -j9
+    * If you don't want to calcuate, use `-j` without the parameter might be a choice (e.g. just `-j` instead of `-j[NUMBER]`)
+
+## Windows UWP (Phone, Xbox, etc.)
+* Clone the repo, then follow the instructions in the [depencencies readme for Windows](./dependencies/windows/dependencies.txt) and [depencencies readme for UWP](./dependencies/windows-uwp/dependencies.txt) to setup dependencies
+* In the directory for the game you want to build, copy the `Data.rsdk` of it
+  * `Sonic1Decomp.UWP` for Sonic 1
+  * `Sonic2Decomp.UWP` for Sonic 2
+  * or copy it's `Data.rsdk` file into `LocalState` of the *game* app later
+* Build and deploy via `Sonic12Decomp.UWP.sln`
+  * You may also need to generate visual assets
+    * To do so, open the `Package.appxmanifest` file in the designer
+    * Under the Visual Assets tab, select an image of your choice
+    * Click Generate
+
+## Linux
 * To setup your build enviroment and library dependecies run the following commands:
-* Ubuntu (Mint, Pop!_OS, etc...): `sudo apt install build-essential git libsdl2-dev libvorbis-dev libogg-dev`
-* Arch Linux: `sudo pacman -S base-devel git sdl2 libvorbis libogg`
-* Clone the repo with the following command: `git clone https://github.com/Rubberduckycooly/Sonic-1-2-2013-Decompilation.git`
-* Go into the repo you just cloned with `cd Sonic-1-2-2013-Decompilation`
-* Then run `make -j4` (-j switch is optional but will make building faster, it's based on the number of cores you have +1 so 8 cores wold be -j9)
+  * Ubuntu/Debian (Mint, Pop!_OS, etc...): `sudo apt install build-essential git libsdl2-dev libvorbis-dev libogg-dev`
+  * Arch Linux: `sudo pacman -S base-devel git sdl2 libvorbis libogg`
+* Clone the repo
+* `cd` to the working tree (the repo's directory)
+  * If you're not sure, run `ls` to check
+* Run `make -j4`
+  * The `-j` switch is optional, but it will make building faster
+    * The number parameter is based on the number of cores you have plus one, so 8 cores wold be -j9
+    * If you don't want to calcuate, use `-j` without the parameter might be a choice (e.g. just `-j` instead of `-j[NUMBER]`)
 
 ## Mac:
-* Clone the repo, then follow the instructions in the [depencencies readme for mac](./dependencies/mac/dependencies.txt) to setup dependencies, then build via the xcode project
-* a mac build of v1.0.0 by sappharad can be found [here](https://github.com/Sappharad/Sonic-1-2-2013-Decompilation/releases/tag/1.0.0mac)
+* Clone the repo
+* Follow the instructions in the [depencencies readme for Mac](./dependencies/mac/dependencies.txt) to setup dependencies
+* Build via the XCode project
 
-## Vita
-* For Vita installation, [Xeeynamo's vita branch](https://github.com/xeeynamo/Sonic-1-2-2013-Decompilation) has you covered.
-## Switch:
-* head on over to [heyjoeway's fork](https://github.com/heyjoeway/Sonic-1-2-2013-Decompilation) and follow the installation instructions in the readme
+A Mac build of v1.0.0 by Sappharad can be found [here](https://github.com/Sappharad/Sonic-1-2-2013-Decompilation/releases/tag/1.0.0mac)
 
-## Other platforms:
-Currently the only supported platforms are the ones listed above, however the backend uses libogg, libvorbis & SDL2 to power it, so the codebase is very multiplatform.
-if you've cloned this repo and ported it to a platform not on the list or made some changes you'd like to see added to this repo, submit a pull request and it'll most likely be added
+## Other platforms
+Currently, the only supported platforms are the ones listed above.
+However, the backend uses libogg, libvorbis & SDL2 to power it, so the codebase is basically multi-platform.
+
+If you've cloned this repo and ported it to a platform not on the list, or made some changes you'd like to see added to this repo, submit a pull request and it'll most likely be merged.
+
+There are also some unoffical ports:
+
+### Vita
+See [Xeeynamo's Vita branch](https://github.com/xeeynamo/Sonic-1-2-2013-Decompilation)
+
+### Switch
+See [heyjoeway's fork](https://github.com/heyjoeway/Sonic-1-2-2013-Decompilation)
 
 # FAQ
-### Q: The screen is tearing, how do I fix it?
-A: Try turning on vsync, that worked for me (tested on mac)
 
-### Q: I found a bug/I have a feature request!
-A: Submit an issue in the issues tab and I'll fix/add (if possible) it as soon as I can
+* Q: The screen is tearing, how do I fix it?
+A: Try turning on vsync. (Tested on Mac)
 
-### Q: Will you do a decompilation for Sonic CD (2011)?
-A: I already have! you can find it [here](https://github.com/Rubberduckycooly/Sonic-CD-11-Decompilation)!
+* Q: I found a bug/I have a feature request!
+A: [Submit an issue](https://github.com/Rubberduckycooly/Sonic-1-2-2013-Decompilation/issues) and we'll try to fix/add it.
 
-### Q: Will you do a decompilation for Sonic Mania?
-A: No. Sonic Mania is a ton bigger and requires that I'd decompile not only how the (far more complex) RSDKv5 works, but also all _600_+ objects work
+* Q: Did you have a decompilation of Sonic CD (2011)?
+A: [Yes](https://github.com/Rubberduckycooly/Sonic-CD-11-Decompilation)!
+
+* Q: Will you do a decompilation for Sonic Mania?
+A: Maybe not. Sonic Mania is much bigger. Decompiling it not only need more knowledge on the far more complexier RSDKv5, it also need much more work (it has _600+_ objects!)
 
 # Special Thanks
-* [RMGRich](https://github.com/MGRich): for helping me fix bugs, tweaking up my sometimes sloppy code and generally being really helpful and fun to work with on this project
-* Everyone in the [Retro Engine Modding Server](https://dc.railgun.works/retroengine): for being supportive of me and for giving me a place to show off these things that I've found
+* [RMGRich](https://github.com/MGRich) for helping me fix bugs, tweaking my sloppy code and being helpful (it's fun to work with him) pronuns
+* Everyone in the [Retro Engine Modding Server](https://dc.railgun.works/retroengine) for being supportive of me and for giving me a place to show off things that I discovered
 
-# Contact:
-you can join the [Retro Engine Modding Discord Server](https://dc.railgun.works/retroengine) for any extra questions you may need to know about the decompilation or modding it
+# Contact
+Please contact through the [Retro Engine Modding Discord Server](https://dc.railgun.works/retroengine) or [submit an issue](https://github.com/Rubberduckycooly/Sonic-1-2-2013-Decompilation/issues) for any extra questions.
