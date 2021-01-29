@@ -49,12 +49,12 @@ typedef unsigned int uint;
 #include <WInRTIncludes.hpp>
 #define RETRO_PLATFORM   (RETRO_UWP)
 #define RETRO_DEVICETYPE (UAP_GetRetroGamePlatform())
-#endif # non WINAPI_FAMILY_APP
+#endif // non WINAPI_FAMILY_APP
 #else
 #define RETRO_PLATFORM   (RETRO_WIN)
 #define RETRO_DEVICETYPE (RETRO_STANDARD)
-#endif # WINAPI_FAMILY
-#elif defined __APPLE__ # endif _WIN32
+#endif // WINAPI_FAMILY
+#elif defined __APPLE__ // endif _WIN32
 #define RETRO_USING_MOUSE
 #define RETRO_USING_TOUCH
 #include <TargetConditionals.h>
