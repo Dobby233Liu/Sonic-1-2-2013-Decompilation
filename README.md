@@ -126,16 +126,16 @@ See [heyjoeway's fork](https://github.com/heyjoeway/Sonic-1-2-2013-Decompilation
 # FAQ
 
 * Q: The screen is tearing, how do I fix it?
-A: Try turning on vsync. (Tested on Mac)
+  A: Try turning on vsync. (Tested on Mac)
 
 * Q: I found a bug/I have a feature request!
-A: [Submit an issue](https://github.com/Rubberduckycooly/Sonic-1-2-2013-Decompilation/issues) and we'll try to fix/add it.
+  A: [Submit an issue](https://github.com/Rubberduckycooly/Sonic-1-2-2013-Decompilation/issues) and we'll try to fix/add it.
 
 * Q: Did you have a decompilation of Sonic CD (2011)?
-A: [Yes](https://github.com/Rubberduckycooly/Sonic-CD-11-Decompilation)!
+  A: [Yes](https://github.com/Rubberduckycooly/Sonic-CD-11-Decompilation)!
 
 * Q: Will you do a decompilation for Sonic Mania?
-A: Maybe not. Sonic Mania is much bigger. Decompiling it not only need more knowledge on the far more complexier RSDKv5, it also need much more work (it has _600+_ objects!)
+  A: Maybe not. Sonic Mania is much bigger. Decompiling it not only need more knowledge on the far more complexier RSDKv5, it also need much more work (it has _600+_ objects!)
 
 # Special Thanks
 * [RMGRich](https://github.com/MGRich) for helping me fix bugs, tweaking my sloppy code and being helpful (it's fun to work with him) pronuns
