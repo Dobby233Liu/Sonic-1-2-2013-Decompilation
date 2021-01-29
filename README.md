@@ -138,7 +138,7 @@ See [heyjoeway's fork](https://github.com/heyjoeway/Sonic-1-2-2013-Decompilation
   A: Maybe not. Sonic Mania is much bigger. Decompiling it not only need more knowledge on the far more complexier RSDKv5, it also need much more work (it has _600+_ objects!)
 
 # Special Thanks
-* [RMGRich](https://github.com/MGRich) for helping me fix bugs, tweaking my sloppy code and being helpful (it's fun to work with him) pronuns
+* [RMGRich](https://github.com/MGRich) for helping me fix bugs, tweaking my sloppy code and being helpful (it's fun to work with them)
 * Everyone in the [Retro Engine Modding Server](https://dc.railgun.works/retroengine) for being supportive of me and for giving me a place to show off things that I discovered
 
 # Contact
