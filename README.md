@@ -17,8 +17,13 @@ You can get the remakes from:
 
 You don't need to be able to run them, you just need to extract the game assets from them.
 
-For the Android version, please open the APK as a ZIP, open the `assets` folder, then copy the `Data.rsdk` file to the *game* folder.
-If there is a `Data.rsdk.xmf` file instead, still copy it, then rename it to `Data.rsdk`.
+For the Android version, you can extract the assets in this way
+* Open the APK as a ZIP
+* Open the `assets` folder
+* Copy the `Data.rsdk` file into the *game* folder
+  * If there is a `Data.rsdk.xmf` file instead, copy that file, but rename the file to `Data.rsdk`
+
+To extract from the iOS version, jailbreaking might be needed; thus it's not covered there.
 
 # Transferring save file
 If you want to transfer your save from the **Android pre-Forever versions**,
