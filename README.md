@@ -1,8 +1,6 @@
 # Sonic 1/2 2013 Decompilation
 This is a decompilation of RSDKv4, the engine used by the 2013 remakes of Sonic 1 & 2.
 
-**Please support the original release of S1/S2 '13!**
-
 # Obtaining the assets
 Without assets from the remakes, this *game* won't run.
 There is a [video tutorial](https://www.youtube.com/watch?v=gzIfRW91IxE) on how to obtain a legal `Data.rsdk` file.
@@ -14,6 +12,9 @@ You can get the remakes from:
   * [Sonic 2 (Android, Via Google Play)](https://play.google.com/store/apps/details?id=com.sega.sonic2.runner&hl=en_AU&gl=US)
   * [Sonic 1 (Android, Via Amazon)](https://www.amazon.com.au/Sega-of-America-Sonic-Hedgehog/dp/B00D74DVKM)
   * [Sonic 2 (Android, Via Amazon)](https://www.amazon.com.au/Sega-of-America-Sonic-Hedgehog/dp/B00HAPRVWS)
+
+**Please support the original release of S1/S2 '13!**
+For the Forever version, you can do this by buying the ads removal IAP through the start menu.
 
 You don't need to be able to run them, you just need to extract the game assets from them.
 
